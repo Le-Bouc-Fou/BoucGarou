@@ -4,7 +4,7 @@ require("code/mouse")
 require("code/level")
 
 function love.load()
-    love.window.setTitle("Le Bouc Fou")
+    love.window.setTitle("Le Bouc Fou - Dev version 0.1")
     utils.load()
     utils.setScreen(800,600,true)
     mouse.load()
