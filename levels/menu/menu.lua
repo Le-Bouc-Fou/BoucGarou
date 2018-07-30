@@ -53,6 +53,12 @@ function level.menu.draw()
     end
 end
 
+function level.menu.click(btn)
+    if btn == "quit" then
+        love.event.quit()
+    end
+end
+
 function level.menu.finish()
     level.menu.sprite = {}
 end
