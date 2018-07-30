@@ -4,7 +4,7 @@ level = {
 
 
 -- hide it if you can
-    require("levels/menu/menu")
+    level.menu = require("levels/menu/menu")
 -- end of eye attack :)
 
 
@@ -14,15 +14,30 @@ function level.start()
 end
 
 function level.load(name)
-    _G["level." .. level.state .. ".finish"]()
+    level[level.state].finish()
     level.state = name
-    _G["level." .. level.state .. ".load"]()
+    level[level.state].load()
 end
 
 function level.update(dt)
-    _G["level." .. level.state .. ".update"](dt)
+    level[level.state].update(dt)
 end
 
 function level.draw()
-    _G["level." .. level.state .. ".draw"]()
+    level[level.state].draw()
+end
+
+function level.click(hover)
+    level[level.state].click = level[level.state].click or function(x)end
+    level[level.state].click(hover)
+end
+
+function level.rgclick(hover)
+    level[level.state].rgclick = level[level.state].rgclick or function(x)end
+    level[level.state].rgclick(hover)
+end
+
+function level.midclick(hover)
+    level[level.state].midclick = level[level.state].midclick or function(x)end
+    level[level.state].midclick(hover)
 end
